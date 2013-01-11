@@ -1,0 +1,105 @@
+@(professor: Professor)
+
+@import helper._
+
+@main("Plano de Aula")(sidebar) {
+    
+	<div class="span10">
+	    	
+	    <div id="divInformacoesProfessor" class="span8">
+		    <h1>Professor @professor.nome</h1>
+			<label><b>Nome:</b> @professor.nome</label>
+			<label><b>Telefone:</b> @professor.telefone</label>
+			<label><b>Email:</b> @professor.email</label>
+			<label><b>Sobre:</b> @professor.descricao</label>
+		</div>
+				 
+	</div>
+
+	<br/>
+
+	<div class="span10">
+
+		 <div class="accordion" id="accordion2" >
+			<h1>Minhas Salas</h1>
+			@for(sala <- professor.salas) {
+				  <div class="accordion-group">
+				    <div class="accordion-heading">
+				      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@sala.id">
+				        <i class="icon-home"></i> @sala.nome - @sala.disciplina - @sala.escola
+				      </a>
+				    </div>
+				    <div id="collapse@sala.id" class="accordion-body collapse out">
+				      <div class="accordion-inner">
+				        <b>Sala:</b> @sala.nome <br/>
+				        <b>Disciplina:</b> @sala.disciplina <br/>
+				        <b>Instituição:</b> @sala.escola <br/>
+				        <b>Descrição:</b> @sala.descricao <br/>
+				        </br>
+				        <a class="accordion-toggle" href="/aulas/@sala.id">
+				        	<i class="icon-folder-open"></i> Plano de Aula
+				        </a>
+				        <br/>
+				        <a class="accordion-toggle" href="/sala/edit/@sala.id">
+				        	<i class="icon-folder-open"></i> Editar Sala
+				        </a>
+				        
+				      </div>
+				    </div>
+				  </div>
+			}
+		 </div>
+	 
+	 </div>
+	
+	<div class="span10">
+		 <a class="btn btn-success" href="/sala/@professor.id">
+		 	<i class="icon-star icon-white"></i> Criar nova sala
+		 </a>
+	</div>	  	
+	
+}
+
+
+@sidebar = {
+
+<div class="span2">
+
+	<div >
+		<img  src="https://graph.facebook.com/1354822114/picture?width=120&amp;height=120" style="height:164px;width:164px;" />
+	</div>
+
+	<br/>
+
+   	<div >
+       <div class="well sidebar-nav" >
+         <ul class="nav nav-list">
+           <li class="nav-header">Opções</li>
+           <li><a href="/professorPerfil/1">Perfil</a></li>
+           <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+           <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+           <li><a href="/professorPerfil/1">Nova Sala</a></li>
+           <li><a href="#">Solicitações</a></li>
+           <li><a href="#">Meus Alunos</a></li>
+           <li><a href="#">Meus Professores</a></li>
+           <li><a href="#">Salas Favoritas</a></li>
+           <li><a href="#">Agenda</a></li>
+  			<li><a href="#">Calendário</a></li>
+           <li><a href="#">Atividades</a></li>
+         </ul>
+       </div>
+       
+       <div class="well sidebar-nav">
+         <ul class="nav nav-list">
+           <li class="nav-header">Institucional</li>
+           <li><a href="#">Editar Perfil</a></li>
+           <li><a href="#">Sobre Nós</a></li>
+           <li><a href="#">Convidar um amigo</a></li>
+           <li><a href="#">Wikipedia</a></li>
+         </ul>
+       </div>
+   	</div>
+
+</div>
+
+}

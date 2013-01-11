@@ -1,0 +1,68 @@
+@(sala: Sala, aulaForm: Form[Aula])
+
+@import helper._
+
+@main("Plano de Aula") {
+    
+    
+    <div class="span9">
+        
+
+        
+    	<h1>@sala.nome </h1>
+    	<h2>@sala.disciplina</h2>
+
+		<div class="accordion" id="accordion2">
+		  @for(aula <- sala.aulas) {
+			  <div class="accordion-group">
+			    <div class="accordion-heading">
+			      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@aula.id">
+			        Aula @aula.numero - @aula.nome
+			      </a>
+			    </div>
+			    <div id="collapse@aula.id" class="accordion-body collapse out">
+			      <div class="accordion-inner">
+			        @aula.descricao
+			        <br/>
+			        <br/>
+			        <a class="btn btn-mini btn-warning" href=""><i class="icon-ok"></i> Editar</a>
+			        <a class="btn btn-mini btn-danger" href="/aula/delete/@aula.id"><i class="icon-remove"></i> Excluir</a>
+			      </div>
+			    </div>
+			  </div>
+		  }
+		</div>
+			
+
+		@form(routes.AulaController.newAula(sala.id)) {
+        
+		    <legend>
+		    	<a class="btn btn-info" href="/professorPerfil/@sala.professor.id"><i class="icon-arrow-left icon-white"></i> Voltar</a>
+		    	<button class="btn btn-success" data-toggle="collapse" data-target="#demo">
+		    		<i class="icon-ok icon-white"></i>
+		    		Nova Aula
+		    	</button>
+		    </legend>
+		    
+		    <div id="demo" class="collapse out">
+			    
+					<label>Nome</label>
+					<input type="text" placeholder="Nome" value="@aulaForm("nome").value" name="nome">
+					
+					<label>Nº da Aula</label>
+					<input type="text" placeholder="Nº" value="@aulaForm("numero").value" name="numero">
+					
+					<label>Descrição</label>
+					<textarea class="field span11" rows="5" placeholder="Descrição" value="@aulaForm("descricao").value" name="descricao"></textarea>
+					
+					
+					    
+			    </br>
+			    <button type="submit" class="btn btn-success" >Adicionar Aula</button>
+			 </div>
+		}
+			
+	</div>
+	
+	
+}

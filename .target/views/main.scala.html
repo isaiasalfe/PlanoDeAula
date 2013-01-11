@@ -1,0 +1,151 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <!-- Le styles -->
+	    <link href="@routes.Assets.at("bootstrap/css/bootstrap.css")" rel="stylesheet">
+	    <style type="text/css">
+	      body {
+	        padding-top: 60px;
+	        padding-bottom: 40px;
+	      }
+	      .sidebar-nav {
+	        padding: 9px 0;
+	      }
+	    </style>
+	    <link href="@routes.Assets.at("bootstrap/css/bootstrap-responsive.css")" rel="stylesheet">
+        
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="@routes.Assets.at("../assets/ico/favicon.ico")">
+	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="@routes.Assets.at("../assets/ico/apple-touch-icon-144-precomposed.png")">
+	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="@routes.Assets.at("../assets/ico/apple-touch-icon-114-precomposed.png")">
+	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="@routes.Assets.at("../assets/ico/apple-touch-icon-72-precomposed.png")">
+	    <link rel="apple-touch-icon-precomposed" href="@routes.Assets.at("../assets/ico/apple-touch-icon-57-precomposed.png")">
+        
+        
+    </head>
+    <body>
+    
+    
+    	<!-- CABEÇALHO -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> </a> <a
+						class="brand" href="/">Plano de Aula</a>
+					<div class="nav-collapse collapse">
+						<p class="navbar-text pull-right">
+							<a href="/professorPerfil/1" class="navbar-link">Login</a>
+						</p>
+						<ul class="nav">
+							<li>
+								<a href="/">Home</a>
+							</li>
+							<li>
+								<a href="/professor">Novo Professor</a>
+							</li>
+						</ul>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<!-- CABEÇALHO -->
+    
+    
+    
+      <div class="container-fluid">
+      <div class="row-fluid">
+        
+        <!-- MENU -->
+        <div class="span3">
+        
+          <!-- 
+          <div class="well sidebar-nav" >
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+          </div>
+          -->
+          
+          <ul class="nav nav-list">
+		  	<li class="divider"></li>
+		  </ul>
+          
+          <div class="page-header">
+            <ul class="nav nav-list">
+              <li class="nav-header">Opções</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Solicitações</a></li>
+              <li><a href="#">Meus Alunos</a></li>
+              <li><a href="#">Meus Professores</a></li>
+              <li><a href="#">Salas Favoritas</a></li>
+              <li><a href="#">Agenda</a></li>
+			  <li><a href="#">Calendário</a></li>
+              <li><a href="#">Atividades</a></li>
+            </ul>
+          </div>
+          
+          <div class="page-header">
+            <ul class="nav nav-list">
+              <li class="nav-header">Institucional</li>
+              <li><a href="#">Editar Perfil</a></li>
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Convidar um amigo</a></li>
+              <li><a href="#">Wikipedia</a></li>
+            </ul>
+          </div>
+          
+          
+          
+        </div>
+		<!-- MENU -->
+		
+		
+		
+		
+		
+        @content
+        
+       </div>
+       </div>
+      
+	    <!-- Le javascript ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+	    <script src="@routes.Assets.at("bootstrap/js/jquery.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-transition.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-alert.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-modal.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-dropdown.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-scrollspy.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-tab.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-tooltip.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-popover.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-button.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-collapse.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-carousel.js")"></script>
+	    <script src="@routes.Assets.at("bootstrap/js/bootstrap-typeahead.js")"></script>
+    
+    </body>
+    
+</html>

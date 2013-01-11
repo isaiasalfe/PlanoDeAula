@@ -1,0 +1,39 @@
+@(idProfessor: Long, salaForm: Form[Sala])
+
+@import helper._
+
+@main("Plano de Aula") {
+    
+    <div class="span9">
+    	
+		@form(routes.SalaController.newSala(idProfessor)) {
+		    
+		    <h1>Cadastro de Sala</h1>
+		    
+		    <div id="demo" >
+			    
+					<label>Nome</label>
+					<input type="text" placeholder="Ex.: Sala 101" value="@salaForm("nome").value" name="nome">
+					
+					<label>Disciplina</label>
+					<input type="text" placeholder="Ex.: Biologia" value="@salaForm("disciplina").value" name="disciplina">
+					
+					<label>Escola</label>
+					<input type="text" placeholder="Ex.: Escola Municipal..." value="@salaForm("escola").value" name="escola">
+					
+					<label>Descrição</label>
+					<textarea class="field span11" rows="5" placeholder="Descreva aqui o público alvo dessa sala" value="@salaForm("descricao").value" name="descricao"></textarea>
+						    
+			    </br>
+			    <button type="submit" class="btn btn-success" >Avançar</button>
+			 </div>
+		}
+    	
+    	
+    	
+	</div>
+    
+    
+    
+    
+}

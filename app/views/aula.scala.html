@@ -1,0 +1,126 @@
+@(sala: Sala, aulaForm: Form[Aula])
+
+@import helper._
+
+@main("Plano de Aula")(sidebar) {
+    
+    
+    <div class="span10">
+        
+    	<h2>@sala.nome - @sala.disciplina</h2>
+    	<h3>Prof. @sala.professor.getNome()</h3>
+
+		<div class="accordion" id="accordion2">
+		  @for(aula <- sala.aulas) {
+			  <div class="accordion-group">
+			    <div class="accordion-heading">
+			      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@aula.id">
+			        <i class="icon-file"></i> Aula @aula.numero - @aula.nome
+			      </a>
+			    </div>
+			    <div id="collapse@aula.id" class="accordion-body collapse out">
+			      <div class="accordion-inner">
+			        @aula.descricao
+			        <br/>
+			        <br/>
+			        
+			        <div align="right">
+				        <a class="btn btn-mini btn-warning" href="/aula/edit/@aula.id/sala/@sala.id">
+				        	<i class="icon-ok icon-white"></i> Editar
+				        </a>
+				        
+				        <a class="btn btn-mini btn-danger" href="/aula/delete/@aula.id">
+				        	<i class="icon-remove icon-white"></i> Excluir
+				        </a>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+		  }
+		</div>
+			
+
+		@form(routes.AulaController.newAula(sala.id)) {
+        
+		    <legend>
+		    	
+		    	<a class="btn btn-info" href="/professorPerfil/@sala.professor.id">
+		    		<i class="icon-arrow-left icon-white"></i> Voltar
+		    	</a>
+		    	
+		    	<button class="btn btn-success" data-toggle="collapse" data-target="#demo">
+		    		<i class="icon-arrow-down icon-white"></i> Nova Aula
+		    	</button>
+		    	
+		    </legend>
+		    
+		    <div id="demo" class="collapse out">
+			    
+					<label>Nome</label>
+					<input type="text" placeholder="Nome" value="@aulaForm("nome").value" name="nome">
+					
+					<label>Nº da Aula</label>
+					<input type="text" placeholder="Nº" value="@aulaForm("numero").value" name="numero">
+					
+					<label>Descrição</label>
+					<textarea class="field span11" rows="5" placeholder="Descrição" value="@aulaForm("descricao").value" name="descricao"></textarea>
+					
+					<input type="hidden" value="@aulaForm("id").value" name="id">
+					
+			    </br>
+			    
+			    <a class="btn btn-info" href="/aulas/@sala.id">
+					<i class="icon-remove icon-white"></i> Cancelar
+				</a>
+			    
+			    <button type="submit" class="btn btn-success">
+			    	<i class="icon-ok icon-white"></i> Salvar
+			    </button>
+			    
+			 </div>
+		}
+			
+	</div>
+}
+
+
+@sidebar = {
+
+        <div class="span2">
+        
+        	<div >
+				<img  src="https://graph.facebook.com/1354822114/picture?width=120&amp;height=120" style="height:164px;width:164px;" />
+			</div>
+
+			<br/>
+        
+          <div class="well sidebar-nav" >
+            <ul class="nav nav-list">
+              <li class="nav-header">Opções</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Solicitações</a></li>
+              <li><a href="#">Meus Alunos</a></li>
+              <li><a href="#">Meus Professores</a></li>
+              <li><a href="#">Salas Favoritas</a></li>
+              <li><a href="#">Agenda</a></li>
+			  <li><a href="#">Calendário</a></li>
+              <li><a href="#">Atividades</a></li>
+            </ul>
+          </div>
+          
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Institucional</li>
+              <li><a href="#">Editar Perfil</a></li>
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Convidar um amigo</a></li>
+              <li><a href="#">Wikipedia</a></li>
+            </ul>
+          </div>
+          
+       </div>
+
+}

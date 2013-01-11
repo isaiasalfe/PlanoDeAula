@@ -1,0 +1,187 @@
+@(message: String)
+
+@main("Plano de Aula")(sidebar) {
+    
+    <!-- @play20.welcome(message, style = "Java")  -->
+    
+    
+    <div class="span12">
+    	<div class="page-header" align="center"> 
+    		<h2>Você é um professor?</h2>
+	    	<h2>Monte seu plano de aulas já!</h2>
+	    	<a class="btn btn-success" href="/professor">Cadastre-se</a>
+		</div>
+	</div>
+    
+  <div class="span12" align="center">
+    
+    <div class="span5 offset3" >
+      <div class="page-header" >
+          <div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="@routes.Assets.at("images/imagem_2.jpg")" alt="" >
+                
+                <div class="carousel-caption" align="left">
+                  <h4>Cras justo odio, dapibus ac facilisis in.</h4>
+                </div>
+                
+              </div>
+              <div class="item">
+                <img src="@routes.Assets.at("images/imagem_2.jpg")" alt="">
+                <div class="carousel-caption" align="left">
+                  <h4>Cras justo odio, dapibus ac facilisis in.</h4>
+                </div>
+              </div>
+              <div class="item">
+                <img src="@routes.Assets.at("images/imagem_2.jpg")" alt="">
+                <div class="carousel-caption" align="left">
+                  <h4>Cras justo odio, dapibus ac facilisis in.</h4>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+		</div>
+	  </div>
+	  
+	</div>
+	  
+<!--     <div class="span3"> -->
+<!-- 		<form class="form-horizontal"> -->
+<!-- 	  		<fieldset> -->
+<!-- 	    		<div class="control-group"> -->
+<!-- 	       			<label class="control-label" for="select01">Select list</label> -->
+<!-- 	       			<div class="controls"> -->
+<!-- 	         			<select id="select01" style="width:100%;"> -->
+<!-- 	            			<option> option1 </option> -->
+<!-- 	            			<option> option2 </option> -->
+<!-- 	         			</select> -->
+<!-- 	     			</div> -->
+<!-- 	    		</div> -->
+<!-- 	   		</fieldset> -->
+<!-- 	 	</form> -->
+
+<!-- TESTE
+	<div class="side_column_section_content">
+		<div align="left">
+			<table>
+				<tr>
+					<td align="center">
+						<div align="left"
+							style="float: left; padding-left: 5px; padding-bottom: 5px">
+							<span id="mainContent_friendsNumberHL" style="font-size: 11px;">Contatos
+								(13)</span> | <a id="mainContent_seealllb" class="hpl2"
+								NavigateUrl="~/Pages/Students/Home/Home/Home.aspx"
+								href="javascript:__doPostBack(&#39;ctl00$mainContent$seealllb&#39;,&#39;&#39;)"
+								style="display: inline-block; font-size: 11px; width: 51px; cursor: pointer">Ver
+								Todos</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="margin-right: 3px;">
+						<div id="mainContent_connectionsUpdatePanel">
+	
+							<div id="mainContent_friendsPanel"
+								style="height: 100px; width: 170px; text-align: left;">
+								<table align="Left">
+									<tr>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="José Henrique"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=76494"><img
+													src="https://graph.facebook.com/1690580522/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="João Marcos"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=76505"><img
+													src="https://graph.facebook.com/100000537975097/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="Leonardo Tonini"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=54203"><img
+													src="https://graph.facebook.com/100001666443291/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="Pamela Santos"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=54507"><img
+													src="https://graph.facebook.com/1467399712/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="Sarah Caixeta"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=53704"><img
+													src="https://graph.facebook.com/1781645276/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+										<td style="width: 50px;"><div class="live-tipsy"
+												original-title="José Marcos"
+												style="padding-left: 0px; padding-right: 0px; margin: 0 3px 3px 0"
+												align="center">
+												<a href="Perfil/id=53570"><img
+													src="https://graph.facebook.com/100001873771376/picture?width=120&height=120"
+													style="height: 48px; width: 48px; border-width: 0px;" />
+												</a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+	
+									</tr>
+								</table>
+							</div>
+	
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="leftMenuTitle" style="margin-top: 10px;"></div>
+		<span class="TitSidebar">Seus amigos já conhecem?</span>
+		<div class="ButFb">
+			<button id="addConLB" class="btn btn-primary InviteSideBar">
+				Convidar amigos</button>
+			<span class="LogoFb">Logo Facebook</span>
+		</div>
+		<div class="leftMenuTitle last"></div>
+	</div>
+	</div>
+TESTE -->
+
+	</div>
+}
+
+
+@sidebar = {
+
+
+
+}
+
+

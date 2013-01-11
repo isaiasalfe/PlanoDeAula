@@ -1,0 +1,79 @@
+@(professor: Professor, salaForm: Form[Sala])
+
+@import helper._
+
+@main("Plano de Aula")(sidebar) {
+    
+    <div class="span10">
+    	
+		@form(routes.SalaController.newSala(professor.id)) {
+		    
+		    <h1>Cadastro de Sala</h1>
+		    <h3>Prof. @professor.getNome()</h3>
+		    
+		    <div id="demo" >
+			    
+					<label>Nome</label>
+					<input type="text" placeholder="Ex.: Sala 101" value="@salaForm("nome").value" name="nome">
+					
+					<label>Disciplina</label>
+					<input type="text" placeholder="Ex.: Biologia" value="@salaForm("disciplina").value" name="disciplina">
+					
+					<label>Instituição</label>
+					<input type="text" placeholder="Ex.: Escola Municipal..." value="@salaForm("escola").value" name="escola">
+					
+					<label>Descrição</label>
+					<textarea class="field span11" rows="5" placeholder="Descreva aqui o público alvo dessa sala" text="@salaForm("descricao").value" name="descricao"></textarea>
+					
+					<input type="hidden" value="@salaForm("id").value" name="id">
+					
+			    </br>
+			    <button type="submit" class="btn btn-success" >Avançar <i class="icon-chevron-right icon-white"></i></button>
+			 </div>
+		}
+    	
+	</div>
+}
+
+
+
+@sidebar = {
+
+        <div class="span2">
+        
+        	<div >
+				<img  src="https://graph.facebook.com/1354822114/picture?width=120&amp;height=120" style="height:164px;width:164px;" />
+			</div>
+
+		  	<br/>
+        
+          <div class="well sidebar-nav" >
+            <ul class="nav nav-list">
+              <li class="nav-header">Opções</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Solicitações</a></li>
+              <li><a href="#">Meus Alunos</a></li>
+              <li><a href="#">Meus Professores</a></li>
+              <li><a href="#">Salas Favoritas</a></li>
+              <li><a href="#">Agenda</a></li>
+			  <li><a href="#">Calendário</a></li>
+              <li><a href="#">Atividades</a></li>
+            </ul>
+          </div>
+          
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Institucional</li>
+              <li><a href="#">Editar Perfil</a></li>
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Convidar um amigo</a></li>
+              <li><a href="#">Wikipedia</a></li>
+            </ul>
+          </div>
+          
+       </div>
+
+}

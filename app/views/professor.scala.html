@@ -1,0 +1,76 @@
+@(professores: List[Professor], professorForm: Form[Professor])
+
+@import helper._
+
+@main("Plano de Aula")(sidebar) {
+    
+    <div class="span10">
+    	
+		@form(routes.ProfessorController.newProfessor()) {
+		    
+		    <h1>Cadastro de Professor</h1>
+		    
+		    <div id="demo" >
+			    
+					<label>Nome</label>
+					<input type="text" placeholder="Nome" value="@professorForm("nome").value" name="nome">
+					
+					<label>Telefone</label>
+					<input type="text" placeholder="Telefone" value="@professorForm("telefone").value" name="telefone">
+					
+					<label>Email</label>
+					<input type="text" placeholder="email" value="@professorForm("email").value" name="email">
+					
+					<label>Senha</label>
+					<input type="password" placeholder="senha" value="@professorForm("senha").value" name="senha">
+					
+					<label>Fale sobre você</label>
+					<textarea class="field span11" rows="5" placeholder="Sua formação, sua experiência, áreas em que atua, etc..." 
+					value="@professorForm("descricao").value" name="descricao"></textarea>
+						    
+			    </br>
+			    <button type="submit" class="btn btn-success" >Finalizar Cadastro</button>
+			 </div>
+		}
+    	
+	</div>
+    
+}
+
+
+
+
+@sidebar = {
+
+        <div class="span2">
+        
+          <div class="well sidebar-nav" >
+            <ul class="nav nav-list">
+              <li class="nav-header">Opções</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Solicitações</a></li>
+              <li><a href="#">Meus Alunos</a></li>
+              <li><a href="#">Meus Professores</a></li>
+              <li><a href="#">Salas Favoritas</a></li>
+              <li><a href="#">Agenda</a></li>
+			  <li><a href="#">Calendário</a></li>
+              <li><a href="#">Atividades</a></li>
+            </ul>
+          </div>
+          
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Institucional</li>
+              <li><a href="#">Editar Perfil</a></li>
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Convidar um amigo</a></li>
+              <li><a href="#">Wikipedia</a></li>
+            </ul>
+          </div>
+          
+       </div>
+
+}
