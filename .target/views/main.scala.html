@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String)(sidebar: Html)(content: Html)
 
 <!DOCTYPE html>
 
@@ -48,14 +48,18 @@
 						class="brand" href="/">Plano de Aula</a>
 					<div class="nav-collapse collapse">
 						<p class="navbar-text pull-right">
-							<a href="/professorPerfil/1" class="navbar-link">Login</a>
+							<a href="/professorPerfil/1" class="navbar-link">Login Professor</a>
+							<a href="/alunoPerfil/1" class="navbar-link">Login Aluno</a>
 						</p>
 						<ul class="nav">
 							<li>
-								<a href="/">Home</a>
+								<a href="/">Conheça o Plano de Aula</a>
 							</li>
 							<li>
-								<a href="/professor">Novo Professor</a>
+								<a href="/professor">Cadastro de Professor</a>
+							</li>
+							<li>
+								<a href="/aluno">Cadastro de Aluno</a>
 							</li>
 						</ul>
 					</div>
@@ -68,68 +72,42 @@
     
     
       <div class="container-fluid">
-      <div class="row-fluid">
-        
-        <!-- MENU -->
-        <div class="span3">
-        
-          <!-- 
-          <div class="well sidebar-nav" >
-            <ul class="nav nav-list">
-              <li class="nav-header">Menu</li>
-              <li><a href="/professorPerfil/1">Perfil</a></li>
-              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
-              <li><a href="/professorPerfil/1">Nova Sala</a></li>
-              <li><a href="#">Link</a></li>
-            </ul>
-          </div>
-          -->
-          
-          <ul class="nav nav-list">
-		  	<li class="divider"></li>
-		  </ul>
-          
-          <div class="page-header">
-            <ul class="nav nav-list">
-              <li class="nav-header">Opções</li>
-              <li><a href="/professorPerfil/1">Perfil</a></li>
-              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
-              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
-              <li><a href="/professorPerfil/1">Nova Sala</a></li>
-              <li><a href="#">Solicitações</a></li>
-              <li><a href="#">Meus Alunos</a></li>
-              <li><a href="#">Meus Professores</a></li>
-              <li><a href="#">Salas Favoritas</a></li>
-              <li><a href="#">Agenda</a></li>
-			  <li><a href="#">Calendário</a></li>
-              <li><a href="#">Atividades</a></li>
-            </ul>
-          </div>
-          
-          <div class="page-header">
-            <ul class="nav nav-list">
-              <li class="nav-header">Institucional</li>
-              <li><a href="#">Editar Perfil</a></li>
-              <li><a href="#">Sobre Nós</a></li>
-              <li><a href="#">Convidar um amigo</a></li>
-              <li><a href="#">Wikipedia</a></li>
-            </ul>
-          </div>
-          
-          
-          
-        </div>
-		<!-- MENU -->
-		
-		
-		
-		
-		
+      	<div class="row-fluid">
+	
+		@sidebar
         @content
-        
+     
        </div>
+       
+       <br/>
+       
+       <div align="center">
+       		© 2013 PlanoDeAula - Todos os direitos reservados
        </div>
-      
+       
+     </div>
+      	
+      	<div id="fb-root"></div>
+      	
+      	<script>
+      		$(function(){
+				$('.carousel').carousel('cycle')
+			})
+		</script>
+		
+		<script>
+			(function(d, s, id) {
+  				var js, fjs = d.getElementsByTagName(s)[0];
+  				if (d.getElementById(id)) 
+  					return;
+  				js = d.createElement(s); 
+  				js.id = id;
+  				js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+  				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
+	    </script>
+	    
 	    <!-- Le javascript ================================================== -->
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <script src="@routes.Assets.at("bootstrap/js/jquery.js")"></script>

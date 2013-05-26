@@ -1,0 +1,183 @@
+.row {
+margin-left: -30px;
+}
+
+h3 {
+font-size: 24px;
+line-height: 40px;
+}
+
+.coloridoLaranja {
+	color: #DD4C3A;
+	text-decoration: none;
+}
+
+#fp-rows a:hover {
+	color: #DD4C3A;
+	text-decoration: none;
+}
+
+#fp-rows p {
+	padding-top: 5px;
+	font-size: 12px;
+	line-height: 25px;
+}
+
+#fp-rows a{color:#000}
+
+#fp-rows .item-holder{
+    background:#fafafa;
+    border-radius:0 6px 6px 6px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.067);    
+}
+
+#fp-rows .product-box{
+    border-radius:6px;
+    padding:4px;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.067);
+    background:#fff;
+    }
+
+#fp-rows .btn-cta {
+    margin:10px 5px 5px;
+    background:#DD4C3A;
+    color: #FFFFFF;
+    font-size: 14px;
+    letter-spacing: 0.75px;
+    text-shadow: 0 1px 1px rgba(20, 20, 20, 0.75);
+}
+
+#fp-rows .btn-cta:hover {
+	background: #36C;
+	color: white;
+}
+
+
+
+.hero-unit {
+	margin-bottom: 30px;
+	background-color: #FAFAFA;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+#textoPrincipal .btn-cta {
+	background: #DD4C3A;
+	color: white;
+	font-size: 19px;
+	text-shadow: 0 1px 1px rgba(20, 20, 20, 0.75);
+	font-size: 21px;
+	letter-spacing: 0.75px;
+}
+
+#textoPrincipal .btn-cta:hover {
+	background: #36C;
+	color: white;
+}
+
+#textoPrincipal .btn-large {
+	padding: 9px 14px;
+	font-size: 16px;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#logo_slider {
+	border-radius: 5px;
+	padding: 0px;
+	text-align: center;
+	margin-left: 0px;
+}
+
+#logo_slider img {
+	display: inline;
+}
+
+.landing_gala {
+	width: 220px;
+	padding: 0px 5px;
+}
+
+.splitter {
+	border-top: 1px solid #DDD;
+}
+
+.splitter_up {
+	border-bottom: 1px solid #DDD;
+	position: relative;
+	bottom: 10px;
+}
+
+.row::after {
+	clear: both;
+}
+
+.row::before, .row::after {
+	display: table;
+	content: "";
+}
+
+
+.caixa {
+	background-color: #E8E8E8;
+}
+
+
+
+
+
+
+
+
+
+/*!
+.carousel-inner {
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.carousel .item {
+	display: none;
+	position: relative;
+	-webkit-transition: 0.6s ease-in-out left;
+	-webkit-transition-property: left;
+	-webkit-transition-duration: 0.6s;
+	-webkit-transition-timing-function: ease-in-out;
+	-webkit-transition-delay: initial;
+	-moz-transition: 0.6s ease-in-out left;
+	-ms-transition: 0.6s ease-in-out left;
+	-o-transition: 0.6s ease-in-out left;
+	transition: 0.6s ease-in-out left;
+}
+
+.carousel .active, .carousel .next, .carousel .prev {
+	display: block;
+}
+
+.carousel .active {
+	left: 0;
+}
+
+.carousel .active.left {
+	left: -100%;
+}
+*/

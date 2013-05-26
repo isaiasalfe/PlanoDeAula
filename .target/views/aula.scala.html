@@ -1,68 +1,255 @@
-@(sala: Sala, aulaForm: Form[Aula])
+@(sala: Sala, aulaForm: Form[Aula], caixaAulaForm: Form[CaixaAula])
 
 @import helper._
 
-@main("Plano de Aula") {
+@main("Plano de Aula")(sidebar) {
     
     
-    <div class="span9">
+    <div class="span10">
         
-
-        
-    	<h1>@sala.nome </h1>
-    	<h2>@sala.disciplina</h2>
+    	<h2>@sala.nome - @sala.disciplina</h2>
+    	<h3>Prof. @sala.professor.nome</h3>
 
 		<div class="accordion" id="accordion2">
 		  @for(aula <- sala.aulas) {
 			  <div class="accordion-group">
 			    <div class="accordion-heading">
 			      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@aula.id">
-			        Aula @aula.numero - @aula.nome
+			        <i class="icon-file"></i> Aula @aula.numero - @aula.nome
 			      </a>
 			    </div>
 			    <div id="collapse@aula.id" class="accordion-body collapse out">
 			      <div class="accordion-inner">
-			        @aula.descricao
+			        
+			        <div class="btn-group">
+					  <a class="btn btn-info" href="#myModal" role="button" data-toggle="modal">Inserir Texto</a>
+					  <button class="btn btn-info">Inserir Vídeo</button>
+					  <button class="btn btn-info">Inserir Slide</button>
+					  <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+					    Ferramentas
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu">
+					    <!-- dropdown menu links -->
+					  </ul>
+					  
+					  <!-- ========================= Modal Inserir Texto ========================= -->
+					<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-header">
+					    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					    <h3 id="myModalLabel">Inserindo Texto</h3>
+					  </div>
+					  
+					  @form(routes.CaixaAulaController.newCaixaAula(aula.id)) {
+						  <div class="modal-body">
+						    
+						    
+						    	<label>Texto</label>
+								<textarea class="field span11" rows="5" value="@caixaAulaForm("valor").value" name="valor"></textarea>
+								
+								<label>Número</label>
+								<input type="text" placeholder="Nº" value="@caixaAulaForm("numero").value" name="numero">
+						
+								<input type="hidden" value="1" name="tipo">
+						
+								<input type="hidden" value="@caixaAulaForm("id").value" name="id">
+						    
+						    
+						  </div>
+						  <div class="modal-footer">
+						    <button class="btn" data-dismiss="modal" aria-hidden="true" >Cancelar</button>
+						    <button class="btn btn-primary" type="submit">Salvar</button>
+						  </div>
+					  }
+					</div>
+					<!-- ========================= Modal Inserir Texto ========================= -->
+					  
+					  
+					</div>
+			        
 			        <br/>
 			        <br/>
-			        <a class="btn btn-mini btn-warning" href=""><i class="icon-ok"></i> Editar</a>
-			        <a class="btn btn-mini btn-danger" href="/aula/delete/@aula.id"><i class="icon-remove"></i> Excluir</a>
+			        
+			        <div class="caixa">
+				        @aula.descricao
+				        <div class="btn-group" align="right">
+					  		<button class="btn btn-mini">Editar</button>
+					  		<button class="btn btn-mini">Excluir</button>
+			        	</div>
+			        </div>
+			        
+			        @for(caixaAula <- aula.caixasAula) {
+			        	
+			        	<br/>
+				        <div class="caixa">
+					        @caixaAula.valor
+					        <div class="btn-group" align="right">
+						  		<button class="btn btn-mini">Editar</button>
+						  		<button class="btn btn-mini">Excluir</button>
+				        	</div>
+				        </div>
+			        
+			        }
+			        
+			        
+			        
+			        <!-- ========================= Video =========================
+			        <br/>
+			        <div class="caixa">
+				        <div align="center">
+					        <iframe width="560" 
+					        		height="315" 
+					        		src="http://www.youtube.com/embed/NUtmw47rroI" 
+					        		frameborder="0" 
+					        		allowfullscreen>
+					        </iframe>
+				        </div>
+				        <div class="btn-group" align="right">
+					  		<button class="btn btn-mini">Editar</button>
+					  		<button class="btn btn-mini">Excluir</button>
+			        	</div>
+			        </div>
+			        
+			        ========================= Video ========================= -->
+
+			        <!-- ========================= Slides =========================
+			        <br/>
+			        <div class="caixa">
+				        <div align="center">
+				        	<iframe src="http://www.slideshare.net/fernandosimeone/slideshelf" 
+				        			width="615px" 
+				        			height="470px" 
+				        			frameborder="0" 
+				        			marginwidth="0" 
+				        			marginheight="0" 
+				        			scrolling="no" 
+				        			style="border:none;" 
+				        			allowfullscreen 
+				        			webkitallowfullscreen 
+				        			mozallowfullscreen>
+				        	</iframe>
+				        </div>
+				        <div class="btn-group" align="right">
+					  		<button class="btn btn-mini">Editar</button>
+					  		<button class="btn btn-mini">Excluir</button>
+			        	</div>
+				    </div>
+			        ========================= Slides ========================= -->
+			        
+			        
+			        <!-- ========================= Botões de Editar/Excluir uma Aula ========================= 
+			        <div align="right">
+				        <a class="btn btn-mini btn-warning" href="/aula/edit/@aula.id/sala/@sala.id">
+				        	<i class="icon-ok icon-white"></i> Editar
+				        </a>
+				        
+				        <a class="btn btn-mini btn-danger" href="/aula/delete/@aula.id">
+				        	<i class="icon-remove icon-white"></i> Excluir
+				        </a>
+			        </div>
+			        ========================= Botões de Editar/Excluir uma Aula ========================= -->
+			        
+			        
 			      </div>
 			    </div>
 			  </div>
 		  }
-		</div>
-			
-
-		@form(routes.AulaController.newAula(sala.id)) {
-        
-		    <legend>
-		    	<a class="btn btn-info" href="/professorPerfil/@sala.professor.id"><i class="icon-arrow-left icon-white"></i> Voltar</a>
-		    	<button class="btn btn-success" data-toggle="collapse" data-target="#demo">
-		    		<i class="icon-ok icon-white"></i>
-		    		Nova Aula
-		    	</button>
-		    </legend>
-		    
-		    <div id="demo" class="collapse out">
+		  
+		  
+		  
+		  <!-- ========================= Collapse de Nova Aula ========================= -->
+		  <div class="accordion-group">
+			    <div class="accordion-heading">
+			      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseNovaAula">
+			        <i class="icon-file"></i> Nova Aula
+			      </a>
+			    </div>
+			    <div id="collapseNovaAula" class="accordion-body collapse out">
+			      <div class="accordion-inner">
+			        
+				        @form(routes.AulaController.newAula(sala.id)) {
+				        
+				        	<label>Nome</label>
+							<input type="text" placeholder="Nome" value="@aulaForm("nome").value" name="nome">
+					
+							<label>Nº da Aula</label>
+							<input type="text" placeholder="Nº" value="@aulaForm("numero").value" name="numero">
+					
+							<label>Descrição</label>
+							<textarea class="field span11" rows="5" placeholder="Descrição" value="@aulaForm("descricao").value" name="descricao"></textarea>
+					
+							<input type="hidden" value="@aulaForm("id").value" name="id">
+					
+			    			</br>
 			    
-					<label>Nome</label>
-					<input type="text" placeholder="Nome" value="@aulaForm("nome").value" name="nome">
-					
-					<label>Nº da Aula</label>
-					<input type="text" placeholder="Nº" value="@aulaForm("numero").value" name="numero">
-					
-					<label>Descrição</label>
-					<textarea class="field span11" rows="5" placeholder="Descrição" value="@aulaForm("descricao").value" name="descricao"></textarea>
-					
-					
-					    
-			    </br>
-			    <button type="submit" class="btn btn-success" >Adicionar Aula</button>
-			 </div>
-		}
+			    			<div align="right">
+							    <a class="btn btn-mini btn-info" href="/aulas/@sala.id">
+									<i class="icon-remove icon-white"></i> Cancelar
+								</a>
+							    
+							    <button type="submit" class="btn btn-mini btn-success">
+							    	<i class="icon-ok icon-white"></i> Salvar
+							    </button>
+							</div>
+				        }
+			      </div>
+			    </div>
+		  </div>
+		  <!-- ========================= Collapse de Nova Aula ========================= -->
+		  
+		</div>
 			
 	</div>
 	
 	
+	
+	
+}
+
+
+@sidebar = {
+
+        <div class="span2">
+        
+        	<div >
+				<img  src="https://graph.facebook.com/1354822114/picture?width=120&amp;height=120" style="height:164px;width:164px;" />
+			</div>
+
+			<br/>
+        
+          <div class="well sidebar-nav" >
+            <ul class="nav nav-list">
+              <li class="nav-header">Opções</li>
+              <li><a href="/professorPerfil/1">Perfil</a></li>
+              <li><a href="/professorPerfil/1">Editar Perfil</a></li>
+              <li><a href="/professorPerfil/1">Minhas Salas</a></li>
+              <li><a href="/professorPerfil/1">Nova Sala</a></li>
+              <li><a href="#">Solicitações</a></li>
+              <li><a href="#">Meus Alunos</a></li>
+              <li><a href="#">Meus Professores</a></li>
+              <li><a href="#">Salas Favoritas</a></li>
+              <li><a href="#">Agenda</a></li>
+			  <li><a href="#">Calendário</a></li>
+              <li><a href="#">Atividades</a></li>
+            </ul>
+          </div>
+          
+          <div class="fb-like-box" data-href="http://www.facebook.com/edlrcomunicacao" data-width="195" data-show-faces="true" data-stream="false" data-header="true">
+	      </div>
+	       
+	      <br/>
+	      <br/>
+          
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Institucional</li>
+              <li><a href="#">Editar Perfil</a></li>
+              <li><a href="#">Sobre Nós</a></li>
+              <li><a href="#">Convidar um amigo</a></li>
+              <li><a href="#">Wikipedia</a></li>
+            </ul>
+          </div>
+          
+       </div>
+
 }

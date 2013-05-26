@@ -1,34 +1,187 @@
 @(message: String)
 
-@main("Plano de Aula") {
+@main("Plano de Aula")(sidebar) {
     
     <!-- @play20.welcome(message, style = "Java")  -->
     
-    <div class="span9">
-    	<div class="page-header" align="center"> 
-    		<h2>Você é um professor?</h2>
-	    	<h2>Monte seu plano de aulas já!</h2>
-	    	<a class="btn btn-success" href="/professor">Cadastre-se</a>
+    <!-- 
+    <div class="span12">
+    	<div class="page-header" align="center" id="textoPrincipal"> 
+    		<h2>Quando é bem planejado, é bem executado</h2>
+	    	<h2 >Monte seu plano de aulas já, poupe trabalho e facilite sua vida</h2>
+	    	<a class="btn btn-large btn-cta" href="/professor">Cadastre-se já</a>
 		</div>
 	</div>
-    
-    
-<!--     <div class="span3"> -->
-<!-- 		<form class="form-horizontal"> -->
-<!-- 	  		<fieldset> -->
-<!-- 	    		<div class="control-group"> -->
-<!-- 	       			<label class="control-label" for="select01">Select list</label> -->
-<!-- 	       			<div class="controls"> -->
-<!-- 	         			<select id="select01" style="width:100%;"> -->
-<!-- 	            			<option> option1 </option> -->
-<!-- 	            			<option> option2 </option> -->
-<!-- 	         			</select> -->
-<!-- 	     			</div> -->
-<!-- 	    		</div> -->
-<!-- 	   		</fieldset> -->
-<!-- 	 	</form> -->
+	-->
+
+	<div class="span12" align="center">
+		<div class="page-header" align="center" id="textoPrincipal">
+
+			<!-- <img class="splitter" src="@routes.Assets.at("images/carrousel_acima.png")" /> -->
+			<div class="row" id="logo_slider">
+				
+				<div id="landing_carousel" class="carousel slide">
+			  		<div class="carousel-inner">
+						<div class="active item">
+				      		<a href="/">
+				      			<img src="@routes.Assets.at("images/teclado-aula.jpg")" width="926" height="100"/>
+				      			<!-- <h2 class="coloridoLaranja">Quando é bem planejado, é bem executado</h2>  -->
+				      		</a>
+						    
+						    <!--
+						    <a href="/our-work"><img alt="Sanoroz" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/600/sanoroz.png" /></a>
+				      		<a href="/our-work"><img alt="Pikiengine" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/598/pikiengine.jpg" /></a>
+				      		<a href="/our-work"><img alt="Glider" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/595/glider.jpg" /></a>
+				      		 -->
+				    	</div>
+					  	<div class="item">
+				      		<a href="/">
+				      			<!-- <img alt="Swallow" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/602/swallow.jpg" /> -->
+				      			<!-- <h2 class="coloridoLaranja">Poupe trabalho e facilite sua vida</h2>-->
+				      			<img src="@routes.Assets.at("images/teclado-aula.jpg")" width="926" height="100"/>
+				      		</a>
+				      		
+				      		<!-- 
+				      		<a href="/our-work"><img alt="Shoefitr" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/601/shoefitr.jpg" /></a>
+				      		<a href="/our-work"><img alt="Bitaero" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/593/bitaero.jpg" /></a>
+				      		<a href="/our-work"><img alt="Kinesis" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/597/kinesis.jpg" /></a>
+				      		 -->
+				    	</div>
+					  	<div class="item">
+				      		<a href="/">
+				      			<!-- <img alt="Revv" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/599/revv.jpg" /> -->
+				      			<!-- <h2 class="coloridoLaranja">Monte seu plano de aulas já</h2>-->
+				      			<img src="@routes.Assets.at("images/teclado-aula.jpg")" width="926" height="100"/>
+				      		</a>
+				      		<!-- 
+				      		<a href="/our-work"><img alt="Bloglocal" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/594/bloglocal.jpg" /></a>
+				      		<a href="/our-work"><img alt="Good_to_go" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/596/good_to_go.jpg" /></a>
+				      		<a href="/our-work"><img alt="Autoref" class="landing_gala" src="http://s3.amazonaws.com/8020-dev/original/591/autoref.jpg" /></a>
+				      		 -->
+				    	</div>
+			  		</div>
+					<a class="carousel-control left" href="#landing_carousel" data-slide="prev">&lsaquo;</a>
+			  		<a class="carousel-control right" href="#landing_carousel" data-slide="next">&rsaquo;</a>
+				</div>
+			</div>
+			<!-- <img class="splitter_up" src="@routes.Assets.at("images/carrousel_abaixo.png")" /> -->
+			
+			<div align="center">
+				<a class="btn btn-info btn-large" href="/professor">Cadastre-se já</a>
+				<a class="btn btn-info btn-large" href="/professorPerfil/1">Fazer Login</a>
+    			<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
+    		</div>
+    		
+    		<br/>
+    		
+    		<div align="center">
+    			<div class="fb-like" data-href="http://localhost:9000/" data-send="true" 
+					data-width="450" data-show-faces="true">
+				</div>
+				
+    		</div>
+			
+		</div>
+		
 	</div>
     
+  	<div class="span12" align="center">
     
+    <div class="container">
     
+            <div class="row" id="fp-rows">
+  				
+  				<div class="span4">
+	            	<h3 align="left">
+	            		<a href="" title="Klipsch S4i">
+	            			Para o Professor
+	            		</a>
+	            	</h3>
+	  				<div class="row-fluid item-holder" id="item-holder">
+	                	<div class="span5 product-box">
+	                    	<a href="">
+	                    		<img src="@routes.Assets.at("images/professor.jpg")" alt="Professor">
+	                    		<a class="btn btn-cta" href="" title="Para o professor">
+	                    		Leia mais...
+	                    	</a>
+	                	</div>
+	                	<div class="span7">
+	                    	<p>
+	                    		Monte seus planos de aula de forma <strong>fácil e dinâmica</strong>.
+	                    		Planejando suas aulas, você <strong>poupará trabalho</strong> e 
+	                    		o rendimento dos seus alunos irá melhorar muito. 
+	                    		Não perca tempo, <strong>cadastre-se já</strong> e experimente 
+	                    		uma forma revolucionária de ensinar.
+	                    	</p>                            
+	                	</div>
+	            	</div>
+	        	</div>
+	        	
+	        	<div class="span4">
+	            	<h3 align="left">
+	            		<a href="" title="">
+	            			Para o Aluno
+	            		</a>
+	            	</h3>
+	  				<div class="row-fluid item-holder" id="item-holder">
+	                	<div class="span5 product-box">
+	                    	<a href="" title="Para o aluno">
+	                    		<img src="@routes.Assets.at("images/aluno.jpg")" alt="Para o aluno">
+	                    		<a class="btn btn-cta" href="" title="Para o aluno">
+	                    		Leia mais...
+	                    	</a>
+	                	</div>
+	                	<div class="span7">
+	                    	<p>
+	                    		Acesse aqui os planos de aula de seus professores, 
+	                    		<strong>facilite sua vida</strong> e aumente seu rendimento. 
+	                    		Se seu professor ainda não conhece o <strong>Plano de Aula</strong>, 
+	                    		mostre para ele e melhore o aproveitamento de vocês. 
+	                    		Não perca tempo e <strong>cadastre-se já!</strong>
+	                    	</p>                            
+	                	</div>
+	            	</div>
+	        	</div>
+	        	
+	        	<div class="span4">
+	            	<h3 align="left">
+	            		<a href="" title="">
+	            			Para Todos
+	            		</a>
+	            	</h3>
+	  				<div class="row-fluid item-holder" id="item-holder">
+	                	<div class="span5 product-box">
+	                    	<a href="" title="Para todos">
+	                    		<img src="@routes.Assets.at("images/pessoas.png")" alt="todos" width="144" height="144">
+	                    		<a class="btn btn-cta" href="" title="Para todos">
+	                    		Leia mais...
+	                    	</a>
+	                	</div>
+	                	<div class="span7">
+	                    	<p>
+	                    		Você costuma <strong>estudar pela internet</strong>?
+	                    		Procure planos de aula abertos ao público e <strong>aprenda sobre 
+	                    		qualquer coisa</strong> de forma fácil e dinâmica. Se você quer 
+	                    		divulgar tutoriais, video-aulas e etc, não perca tempo 
+	                    		e <strong>cadastre-se já</strong>! É muito fácil de usar.
+	                    	</p>
+	                	</div>
+	            	</div>
+	        	</div>
+  			</div>
+  			
+    </div>
+    
+	</div>
+	
+	<!-- </div> -->
 }
+
+
+@sidebar = {
+
+
+
+}
+
+

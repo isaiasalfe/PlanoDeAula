@@ -9,7 +9,7 @@
 		@form(routes.SalaController.newSala(professor.id)) {
 		    
 		    <h1>Cadastro de Sala</h1>
-		    <h3>Prof. @professor.getNome()</h3>
+		    <h3>Prof. @professor.nome</h3>
 		    
 		    <div id="demo" >
 			    
@@ -21,6 +21,9 @@
 					
 					<label>Instituição</label>
 					<input type="text" placeholder="Ex.: Escola Municipal..." value="@salaForm("escola").value" name="escola">
+					
+					<label>Codigo da Sala (Passe esse código aos seus alunos para que se conectem a essa sala)</label>
+					<input type="text" placeholder="Ex.: Bio2012" value="@salaForm("codigo").value" name="codigo">
 					
 					<label>Descrição</label>
 					<textarea class="field span11" rows="5" placeholder="Descreva aqui o público alvo dessa sala" text="@salaForm("descricao").value" name="descricao"></textarea>
@@ -63,6 +66,12 @@
               <li><a href="#">Atividades</a></li>
             </ul>
           </div>
+          
+          <div class="fb-like-box" data-href="http://www.facebook.com/edlrcomunicacao" data-width="195" data-show-faces="true" data-stream="false" data-header="true">
+	      </div>
+	       
+	      <br/>
+	      <br/>
           
           <div class="well sidebar-nav">
             <ul class="nav nav-list">

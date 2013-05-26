@@ -1,4 +1,4 @@
-@(professor: Professor, salaForm: Form[Sala])
+@(alunos: List[Aluno], alunoForm: Form[Aluno])
 
 @import helper._
 
@@ -6,49 +6,43 @@
     
     <div class="span10">
     	
-		@form(routes.SalaController.newSala(professor.id)) {
+		@form(routes.AlunoController.newAluno()) {
 		    
-		    <h1>Cadastro de Sala</h1>
-		    <h3>Prof. @professor.nome</h3>
+		    <h1>Cadastro de Aluno</h1>
 		    
 		    <div id="demo" >
 			    
 					<label>Nome</label>
-					<input type="text" placeholder="Ex.: Sala 101" value="@salaForm("nome").value" name="nome">
+					<input type="text" placeholder="Nome" value="@alunoForm("nome").value" name="nome">
 					
-					<label>Disciplina</label>
-					<input type="text" placeholder="Ex.: Biologia" value="@salaForm("disciplina").value" name="disciplina">
+					<label>Telefone</label>
+					<input type="text" placeholder="Telefone" value="@alunoForm("telefone").value" name="telefone">
 					
-					<label>Instituição</label>
-					<input type="text" placeholder="Ex.: Escola Municipal..." value="@salaForm("escola").value" name="escola">
+					<label>Email</label>
+					<input type="text" placeholder="email" value="@alunoForm("email").value" name="email">
 					
-					<label>Codigo da Sala (Passe esse código aos seus alunos para que se conectem a essa sala)</label>
-					<input type="text" placeholder="Ex.: Bio2012" value="@salaForm("codigo").value" name="codigo">
+					<label>Senha</label>
+					<input type="password" placeholder="senha" value="@alunoForm("senha").value" name="senha">
 					
-					<label>Descrição</label>
-					<textarea class="field span11" rows="5" placeholder="Descreva aqui o público alvo dessa sala" text="@salaForm("descricao").value" name="descricao"></textarea>
-					
-					<input type="hidden" value="@salaForm("id").value" name="id">
-					
+					<label>Fale sobre você</label>
+					<textarea class="field span11" rows="5" placeholder="Sua formação, sua experiência, áreas em que atua, etc..." 
+					value="@alunoForm("descricao").value" name="descricao"></textarea>
+						    
 			    </br>
-			    <button type="submit" class="btn btn-success" >Avançar <i class="icon-chevron-right icon-white"></i></button>
+			    <button type="submit" class="btn btn-success" >Finalizar Cadastro</button>
 			 </div>
 		}
     	
 	</div>
+    
 }
+
 
 
 
 @sidebar = {
 
         <div class="span2">
-        
-        	<div >
-				<img  src="https://graph.facebook.com/1354822114/picture?width=120&amp;height=120" style="height:164px;width:164px;" />
-			</div>
-
-		  	<br/>
         
           <div class="well sidebar-nav" >
             <ul class="nav nav-list">

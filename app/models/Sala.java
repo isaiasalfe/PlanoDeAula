@@ -29,6 +29,9 @@ public class Sala extends Model{
 	@Required
 	public String disciplina;
 	
+	@Required
+	public String codigo;
+	
 	public String descricao;
 	
 	public String escola;
@@ -45,8 +48,13 @@ public class Sala extends Model{
 	
 	
 	
+	public Sala(){
+		
+	}
 	
-	
+	public Sala(Long id){
+		this.id = id;
+	}
 	
 	public static Finder<Long, Sala> find = new Finder<Long, Sala>(Long.class, Sala.class);
 	
@@ -54,6 +62,17 @@ public class Sala extends Model{
 	public static Sala findById(Long id){
 		
 		return find.byId(id);
+		
+	}
+	
+	public static Sala findByCodigoSala(String codigoSala){
+		
+		Sala sala = find.where().eq("codigo", codigoSala).query().findUnique();
+		
+		//Query query = JPA.em().createQuery("select * from sala where codigo = " + codigoSala);
+	    //Sala sala = (Sala) query.getSingleResult();
+	    
+	    return sala;
 		
 	}
 	
@@ -82,5 +101,26 @@ public class Sala extends Model{
 		find.ref(id).delete();
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		return (id == null) ? 0 : (id.intValue() % prime);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (this.getClass() != obj.getClass())
+			return false;
+		Sala other = (Sala) obj;
+		if (this.id == null) {
+			return false;
+		} else if (!this.id.equals(other.id))
+			return false;
+		return true;
+	}
 	
 }

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import play.data.validation.Constraints.Required;
@@ -32,7 +34,9 @@ public class Aula extends Model{
 	@JoinColumn(name="ID_SALA", referencedColumnName="ID" )
 	public Sala sala;
 
-	
+	@OneToMany(mappedBy="aula")
+	@OrderBy(value="numero")
+	public List<CaixaAula> caixasAula;
 	
 	
 	

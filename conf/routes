@@ -4,16 +4,21 @@
 
 
 # Import Secure routes
-#GET	/							module:secure
+#GET	/								module:secure
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           	controllers.Application.index()
 
 # Aula
-GET		/aulas/:idSala				controllers.AulaController.aulas(idSala: Long)
-POST	/newAula:idSala				controllers.AulaController.newAula(idSala: Long)
-GET		/aula/delete/:id			controllers.AulaController.deleteAula(id: Long)
-GET		/aula/edit/:id/sala/:idSala			controllers.AulaController.editarAula(id: Long, idSala: Long)
+GET		/aulas/:idSala					controllers.AulaController.aulas(idSala: Long)
+GET		/aulasAluno/:idSala				controllers.AulaController.aulasAluno(idSala: Long)
+POST	/newAula:idSala					controllers.AulaController.newAula(idSala: Long)
+GET		/aula/delete/:id				controllers.AulaController.deleteAula(id: Long)
+GET		/aula/edit/:id/sala/:idSala		controllers.AulaController.editarAula(id: Long, idSala: Long)
+
+# Caixa Aula
+POST	/newCaixaAula:idAula			controllers.CaixaAulaController.newCaixaAula(idAula: Long)
+
 
 
 # Professor
@@ -23,12 +28,24 @@ POST	/newProfessor				controllers.ProfessorController.newProfessor()
 POST	/professor/:id/delete		controllers.ProfessorController.deleteProfessor(id: Long)
 GET		/professorPerfil/:id		controllers.ProfessorController.professorPerfil(id: Long)
 
+# Aluno
+GET		/aluno					controllers.AlunoController.aluno()
+GET		/alunos					controllers.AlunoController.alunos()
+POST	/newAluno				controllers.AlunoController.newAluno()
+POST	/aluno/:id/delete		controllers.AlunoController.deleteAluno(id: Long)
+GET		/alunoPerfil/:id		controllers.AlunoController.alunoPerfil(id: Long)
+
 # Sala
 GET		/sala/:idProfessor			controllers.SalaController.sala(idProfessor: Long)
 GET		/salas						controllers.SalaController.salas()
 POST	/newSala:idProfessor		controllers.SalaController.newSala(idProfessor: Long)
 POST	/sala/:id/delete			controllers.SalaController.deleteSala(id: Long)
 GET		/sala/edit/:id				controllers.SalaController.editarSala(id: Long)
+
+# ConexaoAlunoSala
+GET		/buscarSala/:idAluno/:codigoSala		controllers.ConexaoAlunoSalaController.buscarSala(idAluno: Long, codigoSala: String)
+GET		/conectarAlunoSala/:idAluno/:idSala		controllers.ConexaoAlunoSalaController.conectarAlunoSala(idAluno: Long, idSala: Long)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

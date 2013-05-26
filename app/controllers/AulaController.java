@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Aula;
+import models.CaixaAula;
 import models.Sala;
 import play.data.Form;
 import play.mvc.Controller;
@@ -10,11 +11,20 @@ public class AulaController extends Controller{
 
 	static Form<Aula> aulaForm = form(Aula.class);
 	
+	static Form<CaixaAula> caixaAulaForm = form(CaixaAula.class);
+	
+	public static Result aulasAluno(Long idSala){
+		
+		Sala sala = Sala.findById(idSala);
+		
+		return ok(views.html.aulaAluno.render(sala, aulaForm));
+	}
+	
 	public static Result aulas(Long idSala){
 		
 		Sala sala = Sala.findById(idSala);
 		
-		return ok(views.html.aula.render(sala, aulaForm));
+		return ok(views.html.aula.render(sala, aulaForm, caixaAulaForm));
 	}
 	
 	public static Result newAula(Long idSala){
@@ -24,7 +34,7 @@ public class AulaController extends Controller{
 		if(formularioAula.hasErrors()){
 			
 			Sala sala = Sala.findById(idSala);
-			return badRequest(views.html.aula.render(sala, formularioAula));
+			return badRequest(views.html.aula.render(sala, formularioAula, caixaAulaForm));
 		
 		}else{
 			
@@ -50,7 +60,7 @@ public class AulaController extends Controller{
 		Sala sala = Sala.findById(aula.sala.id);
 		Aula.delete(id);
 
-		return ok(views.html.aula.render(sala, aulaForm));
+		return ok(views.html.aula.render(sala, aulaForm, caixaAulaForm));
 	}
 	
 	
@@ -60,11 +70,11 @@ public class AulaController extends Controller{
 		
 		if(aula == null){
 			Sala sala = Sala.findById(idSala);
-			return ok(views.html.aula.render(sala, aulaForm));
+			return ok(views.html.aula.render(sala, aulaForm, caixaAulaForm));
 		}
 		
 		Sala sala = Sala.findById(idSala);
-		return ok(views.html.aula.render(sala, aulaForm.fill(aula)));
+		return ok(views.html.aula.render(sala, aulaForm.fill(aula), caixaAulaForm));
 		
 	}
 	

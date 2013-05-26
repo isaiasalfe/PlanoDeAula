@@ -48,14 +48,18 @@
 						class="brand" href="/">Plano de Aula</a>
 					<div class="nav-collapse collapse">
 						<p class="navbar-text pull-right">
-							<a href="/professorPerfil/1" class="navbar-link">Login</a>
+							<a href="/professorPerfil/1" class="navbar-link">Login Professor</a>
+							<a href="/alunoPerfil/1" class="navbar-link">Login Aluno</a>
 						</p>
 						<ul class="nav">
 							<li>
-								<a href="/">Home</a>
+								<a href="/">Conheça o Plano de Aula</a>
 							</li>
 							<li>
-								<a href="/professor">Novo Professor</a>
+								<a href="/professor">Cadastro de Professor</a>
+							</li>
+							<li>
+								<a href="/aluno">Cadastro de Aluno</a>
 							</li>
 						</ul>
 					</div>
@@ -78,11 +82,32 @@
        <br/>
        
        <div align="center">
-       		© 2012 PlanoDeAula - Todos os direitos reservados
+       		© 2013 PlanoDeAula - Todos os direitos reservados
        </div>
        
      </div>
-      
+      	
+      	<div id="fb-root"></div>
+      	
+      	<script>
+      		$(function(){
+				$('.carousel').carousel('cycle')
+			})
+		</script>
+		
+		<script>
+			(function(d, s, id) {
+  				var js, fjs = d.getElementsByTagName(s)[0];
+  				if (d.getElementById(id)) 
+  					return;
+  				js = d.createElement(s); 
+  				js.id = id;
+  				js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+  				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
+	    </script>
+	    
 	    <!-- Le javascript ================================================== -->
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <script src="@routes.Assets.at("bootstrap/js/jquery.js")"></script>

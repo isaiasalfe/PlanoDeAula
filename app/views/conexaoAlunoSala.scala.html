@@ -1,32 +1,62 @@
-@(professor: Professor)
+@(aluno: Aluno, sala: Sala)
 
 @import helper._
 
 @main("Plano de Aula")(sidebar) {
     
 	<div class="span10">
-	    	
-	    <div id="divInformacoesProfessor" class="span8">
-		    <h1>Professor @professor.nome</h1>
-			<label><b>Nome:</b> @professor.nome</label>
-			<label><b>Telefone:</b> @professor.telefone</label>
-			<label><b>Email:</b> @professor.email</label>
-			<label><b>Sobre:</b> @professor.descricao</label>
+	    <div class="span8">
+		    <h1>Aluno @aluno.nome</h1>
+			<label><b>Digite o código da Sala:</b></label>
+			<input type="text" placeholder="Codigo da sala" id="codigoSala" value="">
+			<br/>
 			
-			<div class="fb-like" data-href="http://localhost:9000/" data-send="true" data-layout="button_count" 
-				data-width="450" data-show-faces="true">
-			</div>
+			<a class="btn btn-primary" href="#" 
+			onclick="this.href='/buscarSala/@aluno.id/'+document.getElementById('codigoSala').value">
+		 		Buscar sala
+		 	</a>
 		</div>
-				 
 	</div>
 
 	<br/>
 
-	<div class="span10">
+	@if(sala != null){
+		
+		@if(sala.id.equals(0L)){
+			<div class="span10">
+				<h1>Sala não encontrada</h1>
+			</div>
+		}else{
+		
+			@if(sala.id.equals(-1L)){
+				<div class="span10">
+					<h1>Você já está conectado a essa sala</h1>
+				</div>
+			}else{
+				<div class="span10">
+					<h1>Sala: @sala.nome</h1>
+					<b>Professor:</b> @sala.professor.nome <br/>
+			        <b>Disciplina:</b> @sala.disciplina <br/>
+			        <b>Instituição:</b> @sala.escola <br/>
+			        <b>Descrição:</b> @sala.descricao <br/>
+			        
+			        <br/>
+			        
+			        <a class="btn btn-success" href="/conectarAlunoSala/@aluno.id/@sala.id">
+			 			<i class="icon-star icon-white"></i> Conectar
+			 		</a>
+			        
+				</div>
+			 	
+			}
+		}
+	}
 
+	<!-- 
+	<div class="span10">
 		 <div class="accordion" id="accordion2" >
 			<h1>Minhas Salas</h1>
-			@for(sala <- professor.salas) {
+			@for(sala <- aluno.salas) {
 				  <div class="accordion-group">
 				    <div class="accordion-heading">
 				      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse@sala.id">
@@ -43,24 +73,19 @@
 				        <a class="accordion-toggle" href="/aulas/@sala.id">
 				        	<i class="icon-folder-open"></i> Plano de Aula
 				        </a>
-				        <br/>
-				        <a class="accordion-toggle" href="/sala/edit/@sala.id">
-				        	<i class="icon-folder-open"></i> Editar Sala
-				        </a>
-				        
 				      </div>
 				    </div>
 				  </div>
 			}
 		 </div>
-	 
 	 </div>
-	
-	<div class="span10">
-		 <a class="btn btn-success" href="/sala/@professor.id">
-		 	<i class="icon-star icon-white"></i> Criar nova sala
+	 
+	 <div class="span10">
+		 <a class="btn btn-success" href="">
+		 	<i class="icon-star icon-white"></i> Conectar a uma nova sala
 		 </a>
-	</div>	  	
+	 </div>
+	 -->
 	
 }
 
@@ -108,10 +133,7 @@
            <li><a href="#">Wikipedia</a></li>
          </ul>
        </div>
-       
    	</div>
-   	
-   	
 
 </div>
 
